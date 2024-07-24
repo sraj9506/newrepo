@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from GitHub repository
-                git credentialsId: 'gitcredentials',url :'https://github.com/nkheria/DevOpsClassCodes.git', branch: 'master'
+                git credentialsId: 'gitcredentials',url :'https://github.com/sraj9506/newrepo.git', branch: 'main'
             }
         }
 
@@ -17,8 +17,8 @@ pipeline {
             steps {
                 // Build the project using Maven
                 script {
-                    withEnv(["PATH+MAVEN=${MAVEN_HOME}\\bin"]) {
-                        sh 'mvn clean package'
+                    withEnv(["PATH+MAVEN=${MAVEN_HOME}/bin"]) {
+                        sh 'mvn clean install'
                     }
                 }
             }
